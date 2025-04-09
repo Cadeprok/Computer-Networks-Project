@@ -1,8 +1,8 @@
 import pyshark
 import math
 
-minecraft_file_path = "minecraft_packet_good.pcapng"
-network_file_path = "network_packet_good.pcapng"
+minecraft_file_path = "minecraft_packets/minecraft_packet_good.pcapng"
+network_file_path = "networkpackets/network_packet_good.pcapng"
 minecraft_protocol_map = {}
 network_protocol_map = {}
 total_count, minecraft_count, network_count = 0,0,0
