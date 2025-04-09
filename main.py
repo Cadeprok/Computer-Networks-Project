@@ -20,8 +20,6 @@ network_port_list = set()
 def format_num(num:int) -> str:
     pass
 
-
-
 def process_minecraft_packet(packet_info) -> None:
     global total_count
     global max_mc_tcp_segment_length
@@ -189,17 +187,6 @@ def main() -> None:
     process_minecraft_packet(minecraft_packet_info)
     process_total_network_packet(network_packet_info)
 
-    '''
-    total_count, minecraft_count, network_count = 0,0,0
-
-    max_mc_tcp_segment_length, min_mc_tcp_segment_length, max_net_tcp_segment_length, min_net_tcp_segment_length = float('-inf'), float('inf'), float('-inf'), float('inf')
-    max_mc_udp_segment_length, min_mc_udp_segment_length, max_net_udp_segment_length, min_net_udp_segment_length = 0,99999999999999,0,999999999
-    total_mc_tcp_seg, total_net_tcp_seg = 0,0
-    minecraft_ip_list = set()
-    minecraft_port_list = set()
-    network_ip_list = set()
-    network_port_list = set()
-    '''
     print(total_count)
     print(minecraft_count)
     print(network_count)
@@ -218,9 +205,6 @@ def main() -> None:
 
     print(minecraft_protocol_map)
     print(network_protocol_map)
-
-
-
 
     
 if __name__ == "__main__":
