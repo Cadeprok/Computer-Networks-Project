@@ -241,8 +241,31 @@ def main() -> None:
     num3 = []
     labels4 = []
     num4 = []
-    print(minecraft_protocol_map)
-    print(network_protocol_map)
+
+    # print(minecraft_protocol_map)
+    # print(network_protocol_map)
+
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('|                |                    Overall Network                                        Minecraft                 |')
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Total Packets  |                     ' + str(network_count) + "                                                 " + str(minecraft_count) + "                      |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Max TCP Seg    |                      ' + str(max_net_tcp_segment_length) + "                                                   " + str(max_mc_tcp_segment_length) + "                    |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Total TCP Seg  |                      ' + str(total_net_tcp_seg) + "                                                " + str(total_mc_tcp_seg) + "                 |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Total UDP Seg  |                     ' + str(total_net_udp_seg) + "                                                " + str(total_mc_udp_seg) + "                    |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Min TCP Seg    |                        ' + str(min_net_tcp_segment_length) + "                                                     " + str(min_mc_tcp_segment_length) + "                      |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Max UDP Seg    |                      ' + str(max_net_udp_segment_length) + "                                                     " + str(max_mc_udp_segment_length) + "                  |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Min UDP Seg    |                         ' + str(min_net_udp_segment_length) + "                                                  " + str(min_mc_udp_segment_length) + "                      |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Total #: Ports |                          ' + str(len(list(network_port_list))) + "                                               " + str(len(list(minecraft_port_list))) + "                      |")
+    print('------------------------------------------------------------------------------------------------------------------------')
+    print('| Total #: IPs   |                         ' + str(len(list(network_ip_list))) + "                                                  " + str(len(list(minecraft_ip_list))) + "                     |")
+    print('------------------------------------------------------------------------------------------------------------------------')
     # minecraft_protocol_map pie chart
     for x, y in minecraft_protocol_map.items():
         labels.append(x)
@@ -293,14 +316,17 @@ def main() -> None:
         mc_tcp_val.append(int(value))
     mc_tcp_val.pop()
     mc_tcp_time.pop()
-    print(mc_tcp_val)
-    print(mc_tcp_time)
+
+    # print(mc_tcp_val)
+    # print(mc_tcp_time)
+
     mc_tcp_time_plot = np.array(mc_tcp_time)
     mc_tcp_val_plot = np.array(mc_tcp_val)
     # Plot array and display it
     plt.plot(mc_tcp_time_plot, mc_tcp_val_plot)
     plt.xlabel('Segment Time')
     plt.ylabel('Num of Segments')
+    plt.title('Number of Minecraft TCP Segments Over Time')
     plt.show()
 
     # Convert data into a plottable array
@@ -317,6 +343,7 @@ def main() -> None:
     # Plot array and display it
     plt.xlabel('Segment Time')
     plt.ylabel('Segment amount')
+    plt.title('Minecraft TCP Segment Lengths Over Time')
     plt.show()
     
 
@@ -328,12 +355,13 @@ def main() -> None:
         network_num_val.append(int(value))
     network_num_val.pop()
     network_num_time.pop()
-    mc_amount_val_plot = np.array(network_num_val)
-    mc_amount_time_plot = np.array(network_num_time)
+    net_amount_val_plot = np.array(network_num_val)
+    net_amount_time_plot = np.array(network_num_time)
     # Plot array and display it
-    plt.plot(mc_amount_time_plot, mc_amount_val_plot)
+    plt.plot(net_amount_time_plot, net_amount_val_plot)
     plt.xlabel('Segment Time')
     plt.ylabel('Segment number')
+    plt.title('Number of Network TCP Segments Over Time')
     plt.show()
 
     # Convert data into a plottable array
@@ -349,9 +377,10 @@ def main() -> None:
     # Plot array and display it
     plt.plot(mc_amount_time_plot, mc_amount_val_plot)
     plt.xlabel('Segment Time')
+    plt.title('Network TCP Segment Lengths Over Time')
     plt.ylabel('Segment amount')
     plt.show()
-    
-    
+
+
 if __name__ == "__main__":
     main()
